@@ -1,0 +1,24 @@
+{
+  "name": "sistema_sgae",
+  "version": "1.0.0",
+  "description": "SGAE - Sistema de Gestão de Ambientes de Ensino, projeto com objetivo de ser colocado em produção para organizar a realização de tarefas em um sistema escolar (Senai Roberto Mange)",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "./node_modules/.bin/cypress open",
+    "cypress:run": "./node_modules/.bin/cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andre-savedra/sistema_sgae.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andre-savedra/sistema_sgae/issues"
+  },
+  "homepage": "https://github.com/andre-savedra/sistema_sgae#readme",
+  "dependencies": {
+    "cypress": "^9.6.0"
+  }
+}

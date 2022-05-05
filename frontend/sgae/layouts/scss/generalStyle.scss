@@ -1,0 +1,651 @@
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+// STARS EFFECTS
+@function box-shadow-stars($n) {
+    $star-shadows: '#{random(4000)-2000}px #{random(4000)-2000}px #fff';
+
+    @for $i from 2 through $n {
+        $star-color-num: random(3);
+        $star-color: #fff;
+
+        @if ($star-color-num==1) {
+            $star-color: '#fff';
+        }
+
+        @if ($star-color-num==2) {
+            $star-color: '#FF6666';
+        }
+
+        @if ($star-color-num==3) {
+            $star-color: '#79bfea';
+        }
+
+        $star-shadows: '#{$star-shadows}, #{random(4000)-2000}px #{random(4000)-2000}px #{$star-color}';
+    }
+
+    @return unquote($star-shadows);
+}
+
+$stars1-shadows: box-shadow-stars(10000);
+$stars2-shadows: box-shadow-stars(1000);
+$stars3-shadows: box-shadow-stars(500);
+
+@keyframes rotateEarth {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(2000px);
+    }
+}
+
+;
+
+.stars1 {
+    width: 1px;
+    height: 1px;
+    box-shadow: $stars1-shadows;
+    border-radius: 50%;
+    animation: rotateEarth 200s linear infinite;
+    opacity: 0.9;
+}
+
+.stars2 {
+    width: 2px;
+    height: 2px;
+    box-shadow: $stars2-shadows;
+    border-radius: 50%;
+    animation: rotateEarth 190s linear infinite;
+    opacity: 0.9;
+}
+
+.stars3 {
+    width: 3px;
+    height: 3px;
+    box-shadow: $stars3-shadows;
+    border-radius: 50%;
+    animation: rotateEarth 180s linear infinite;
+    opacity: 0.9;
+}
+
+
+
+.normal-dark-btn {
+    background-color: var(--dark-background-color);
+    border: none;
+    cursor: pointer;
+    color: white;
+
+    &:focus {
+        background-color: var(--dark-background-color-hover);
+    }
+
+    &:hover {
+        background-color: var(--dark-background-color-hover);
+    }
+}
+
+.p-button-text:focus,
+.p-sidebar-icon:focus,
+.p-sidebar-close:focus,
+.p-link:focus {
+    box-shadow: none !important;
+    // outline: 0 !important;
+    // border-color: none !important;
+}
+
+// ******************* TELA LOGIN e REGISTRAR ***************************
+.registerBtn,
+.resetPswBtn,
+.linksRegister {
+    .p-button-icon-left {
+      width: 33px;
+      margin: 0px;
+    }
+  }
+
+
+// ******************* TELA REGISTRAR ***************************
+.compPasswordRegister{
+
+    #senhaRegister,
+    #senhaRegister2,
+    .inputComboRegister .passInputRegister {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid black;
+      font-size: 18px;
+      overflow: hidden;
+      overflow-y: hidden;
+      &:focus,
+      &:valid {
+        outline: 0;        
+        border-color: crimson;
+        overflow: hidden;
+      }   
+    }
+    .p-input-icon-right > i:last-of-type {        
+        color: crimson;
+        font-weight: bold;
+    }
+    .p-input-icon-right>i {
+        position: absolute;
+        top: 50%;
+        left: 90%;
+        margin-top: -0.5rem;
+    }
+}
+
+
+.inputComboRegister .customAvatarUpload{
+    .p-fileupload-choose{
+      background-color: #e47474;
+      border:none;
+      height: 35px;
+
+      &:hover,
+      &:focus{
+        background-color: #dc3d3d;
+      }
+
+      .p-button-icon{
+          width:30px;
+      }
+
+    }
+  }
+
+
+
+// ******************* TELA ADD TAREFAS ***************************
+
+.customDatePicker {
+    .p-datepicker-trigger {
+        background-color: var(--red-background-color) !important;
+        border-color: var(--red-background-color) !important;
+    }
+
+    .p-inputtext:enabled {
+        outline: 0;
+        box-shadow: none;
+        border-color: none;
+        border: none;
+        border-bottom: 2px solid black;
+        border-radius: 0;
+
+        &:focus,
+        &:hover {
+            border: none;
+            border-bottom: 2px solid black;
+        }
+    }
+}
+
+
+.customAutocomplete {
+    .p-autocomplete-multiple {
+        .p-autocomplete-multiple-container {
+            outline: 0;
+            box-shadow: none;
+            border-color: none;
+            border: none;
+            border-bottom: 2px solid black;
+            border-radius: 0;
+
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+
+            .p-autocomplete-token {
+                background-color: rgb(228, 150, 144);
+                width: auto;
+                margin: 5px 2px;
+                color: black;
+
+                .p-autocomplete-token-icon {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-end;
+                    width: 20px;
+                }
+            }
+        }
+    }
+
+    .p-autocomplete {
+        .p-autocomplete-input {
+            outline: 0;
+            box-shadow: none;
+            border-color: none;
+            border: none;
+            border-bottom: 2px solid black;
+            border-radius: 0;
+
+        }
+    }
+}
+
+.customFileUpload {
+    .p-fileupload-buttonbar {
+        border: none !important;
+        border-color: white !important;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            background-color: var(--red-background-color) !important;
+            border-color: var(--red-background-color) !important;
+            width: 80%;
+            height: 40px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            .pi-plus {
+                width: 40px;
+            }
+        }
+
+        button {
+            display: none !important;
+        }
+    }
+
+    .p-fileupload-content {
+        .p-fileupload-row {
+            div .p-button-icon-only {
+                background-color: var(--red-background-color) !important;
+                border-color: var(--red-background-color) !important;
+            }
+
+        }
+
+    }
+}
+
+
+
+// ******************* TELA DE TAREFAS ***************************
+.allTasks {
+    .dataTaskViewer .p-dataview-header {
+        overflow-x: visible !important;
+        // background-color: #e3e7eb;
+        background-color: var(--task-background-invisible);
+        background-image: var(--task-background-invisible);
+        border-bottom: 3px solid var(--task-border-color);
+        border-top: none;
+    }
+
+    /*********** LIST VIEW***********/
+    .dataTaskViewer .p-dataview-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 90vw;
+        background-color: var(--task-background-invisible);
+        background-image: var(--task-background-invisible);
+
+        .p-nogutter {
+            // background-color: #e3e7eb;
+            background-color: var(--task-background-invisible);
+            background-image: var(--task-background-invisible);
+
+            
+            // .listTaskDataView {              
+            //     .elementListTaskDataView {              
+            //     }
+            // }
+
+
+        }
+    }
+
+    .viewSwitch {
+        .p-dataview-layout-options {
+            button {
+                margin-top: 4px;
+                border: 1px solid black !important;
+                border-radius: 5px;
+
+                &:focus {
+                    box-shadow: none !important;
+                }
+            }
+
+            .p-highlight {
+                border: 1px solid #c22a1f !important;
+                background-color: #c22a1f !important;
+            }
+        }
+    }
+
+
+
+    .p-paginator-bottom {
+        border-bottom: 1px solid var(--task-border-color) !important;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 90vw;
+        height: 70px;
+        margin: 0px 0px 20px 0px;
+        overflow-y: hidden;
+        // background-color: #e3e7eb;
+        background-color: var(--task-background-invisible);
+        background-image: var(--task-background-invisible);
+
+        .p-paginator-first,
+        .p-paginator-prev,
+        .p-paginator-next,
+        .p-paginator-last {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            border-radius: 20px;
+            color: black !important;
+            font-weight: bold !important;
+
+
+            &:hover {
+                background-color: #d15850 !important;
+            }
+        }
+
+        .p-paginator-pages {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            height: 50px;
+
+            .p-highlight {
+                background-color: #d15850 !important;
+            }
+
+            button {
+                color: black !important;
+                font-weight: bold !important;
+                border-radius: 20px;
+
+                &:hover {
+                    background-color: #d15850 !important;
+                }
+            }
+
+        }
+
+
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .allTasks {
+        .dataTaskViewer {
+            .p-dataview-header {
+                padding: 0px 0px !important;
+            }
+        }
+
+        .sortClass,
+        .filteredField {
+            .p-dropdown-items-wrapper {
+                font-size: 12px !important;
+            }
+
+            .p-dropdown-label,
+            .p-autocomplete-input {
+                font-size: 13px !important;
+            }
+        }
+    }
+}
+
+
+
+.p-image-mask {
+    width: 90vw !important;
+    height: 90vh !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    left: 15vw !important;
+    top: 10vh !important;
+
+    .p-image-toolbar {
+        margin-bottom: 5px !important;
+        z-index: 1002;
+
+        button {
+            background-color: #c22a1f !important;
+            text-align: center !important;
+
+            i {
+                color: white !important;
+            }
+        }
+    }
+
+    div img {
+        width: 70vw !important;
+        height: 70vh !important;
+        max-height: 70vw !important;
+    }
+}
+
+.p-image-preview-indicator i {
+    display: none !important;
+}
+
+@media screen and (max-width: 580px) {
+    .p-image-mask {
+        left: 10vw !important;
+        top: 5vh !important;
+
+        div img {
+            width: 80vw !important;
+            height: 70vh !important;
+            max-height: 80vw !important;
+        }
+    }
+}
+
+
+
+
+
+
+
+// PROGRESS PAGE
+
+.timeprogress {
+
+    .p-timeline-event {
+        flex: 1 !important;
+
+        .p-timeline-event-opposite {
+            display: none !important;
+        }
+
+        .p-timeline-event-separator .p-timeline-event-connector {
+            background-color: #99180f !important;
+            margin-right: 4px;
+            margin-left: 4px;
+            height: 6px;
+        }
+
+        &:first-child {
+            margin-left: 9%;
+        }
+
+    }
+}
+
+.timelineContainer .p-dialog-mask .p-dialog {
+    border-radius: 15px !important;
+
+    .p-dialog-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgba(194, 42, 31, 0.84) !important;
+        color: white !important;
+        padding: 10px 15px !important;
+
+        .p-dialog-header-icons button {
+            color: white !important;
+        }
+
+        span,
+        .p-dialog-header-icons {
+            width: auto;
+        }
+    }
+
+    .p-dialog-content {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        i {
+            margin: 10px 0px;
+            width: 25px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        strong,
+        p {
+            width: auto;
+        }
+
+        p {
+            margin: 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .timelineContainer .p-dialog-mask {
+        .p-dialog {
+            width: 80vw !important;
+
+            span,
+            p,
+            i {
+                font-size: 15px !important;
+            }
+
+            p {
+                margin: 10px 14px !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .timelineContainer .p-dialog-mask {
+        .p-dialog {
+            width: 90vw !important;
+        }
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .timelineContainer .p-dialog-mask {
+        .p-dialog {
+            width: 100vw !important;
+        }
+    }
+}
+
+
+// PDF PAGE
+.p-autocomplete .p-autocomplete-multiple-container:not(.p-disabled):hover {
+    border-color: none !important;
+}
+.p-autocomplete .p-autocomplete-multiple-container:not(.p-disabled).p-focus {
+    border-color: none !important;
+    box-shadow: none !important;
+}
+.p-autocomplete .p-autocomplete-multiple-container:not(.p-disabled):hover{
+    border-color: none !important;
+}
+
+.pdf-elementMode {
+
+    .p-autocomplete-multiple {
+
+       
+        .p-autocomplete-multiple-container {
+            outline: 0;
+            box-shadow: none;
+            border-color: none;
+            border: none;
+            border-bottom: 2px solid black;
+            border-radius: 0;
+
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+
+           
+            .p-autocomplete-token {
+                background-color: rgb(228, 150, 144);
+                width: auto;
+                min-width: 85px;
+                margin: 5px 2px;
+                color: black;
+                font-weight: bold;
+
+                .p-autocomplete-token-icon {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-end;
+                    width: 27px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
